@@ -1,0 +1,203 @@
+from djitellopy import Tello
+import time
+
+row1 = [2, 9, 14, 18, 6, 11]
+row2 = [9, 18, 2, 11, 6, 14]
+row3 = [14, 11, 18, 9, 2, 6]
+
+myX = 0
+myY = 0
+balloon_distance = 25
+
+id1 = input('ENTER ARUCO TAG 1: ')
+id2 = input('ENTER ARUCO TAG 2: ')
+id3 = input('ENTER ARUCO TAG 3: ')
+
+allids = [int(id1), int(id2), int(id3)]
+
+me = Tello()
+
+
+def DoesTagNeedToBePopped():
+
+    pop_distance = 35
+
+    if myY == 1 and myX == 1:
+        if 2 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 1 and myX == 2:
+        if 9 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 1 and myX == 3:
+        if 14 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 1 and myX == 4:
+        if 18 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 1 and myX == 5:
+        if 6 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 1 and myX == 6:
+        if 11 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 2 and myX == 1:
+        if 9 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 2 and myX == 2:
+        if 18 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 2 and myX == 3:
+        if 2 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 2 and myX == 4:
+        if 11 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 2 and myX == 5:
+        if 6 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 2 and myX == 6:
+        if 14 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 3 and myX == 1:
+        if 14 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(31)
+    if myY == 3 and myX == 2:
+        if 11 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 3 and myX == 3:
+        if 18 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 3 and myX == 4:
+        if 9 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 3 and myX == 5:
+        if 2 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    if myY == 3 and myX == 6:
+        if 6 in allids:
+            me.move_forward(pop_distance)
+            me.move_back(pop_distance)
+    return me
+
+me.for_back_velocity = 100
+me.left_right_velocity = 5
+me.up_down_velocity = 0
+me.yaw_velocity = 0
+
+me.connect()
+me.takeoff()
+time.sleep(1)
+
+me.move_forward(122)
+me.move_forward(115)
+
+me.move_up(40)
+me.move_down(35)
+myY = myY + 1
+me.move_left(45)
+myX = myX + 1
+DoesTagNeedToBePopped()
+
+me.move_up(balloon_distance)
+time.sleep(2)
+myY = myY + 1
+DoesTagNeedToBePopped()
+
+me.move_up(balloon_distance)
+time.sleep(2)
+myY = myY + 1
+DoesTagNeedToBePopped()
+
+me.move_right(balloon_distance)
+time.sleep(2)
+myX = myX + 1
+DoesTagNeedToBePopped()
+
+me.move_down(balloon_distance)
+time.sleep(2)
+myY = myY - 1
+DoesTagNeedToBePopped()
+
+me.move_down(balloon_distance)
+time.sleep(2)
+myY = myY - 1
+DoesTagNeedToBePopped()
+
+me.move_right(balloon_distance)
+time.sleep(2)
+myX = myX + 1
+DoesTagNeedToBePopped()
+
+me.move_up(balloon_distance)
+time.sleep(2)
+myY = myY + 1
+DoesTagNeedToBePopped()
+
+me.move_up(balloon_distance)
+time.sleep(2)
+myY = myY + 1
+DoesTagNeedToBePopped()
+
+me.move_right(balloon_distance)
+time.sleep(2)
+myX = myX + 1
+DoesTagNeedToBePopped()
+
+me.move_down(balloon_distance)
+time.sleep(2)
+myY = myY - 1
+DoesTagNeedToBePopped()
+
+me.move_down(balloon_distance)
+time.sleep(2)
+myY = myY - 1
+DoesTagNeedToBePopped()
+
+me.move_right(balloon_distance)
+time.sleep(2)
+myX = myX + 1
+DoesTagNeedToBePopped()
+
+me.move_up(balloon_distance)
+time.sleep(2)
+myY = myY + 1
+DoesTagNeedToBePopped()
+
+me.move_up(balloon_distance)
+time.sleep(2)
+myY = myY + 1
+DoesTagNeedToBePopped()
+
+me.move_right(balloon_distance)
+time.sleep(2)
+myX = myX + 1
+DoesTagNeedToBePopped()
+
+me.move_down(balloon_distance)
+time.sleep(2)
+myY = myY - 1
+DoesTagNeedToBePopped()
+
+me.move_down(balloon_distance)
+time.sleep(2)
+myY = myY - 1
+DoesTagNeedToBePopped()
+
+me.land()
